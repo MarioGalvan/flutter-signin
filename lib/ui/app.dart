@@ -4,6 +4,7 @@ import 'package:ejemplo_1/ui/pages/navigation/navigarionBar.dart';
 import 'package:ejemplo_1/ui/pages/content/principal.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -19,6 +20,11 @@ class MyApp extends StatelessWidget {
         '/register': (context) => const Register(),
       },
       home: const NavigationBarApp(),
+     theme: (
+      ThemeData(
+        primarySwatch: Colors.deepPurple
+      )
+     ),
     );
   }
 }

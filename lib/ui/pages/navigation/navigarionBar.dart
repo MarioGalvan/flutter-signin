@@ -2,6 +2,7 @@
 import 'package:ejemplo_1/ui/pages/auth/login.dart';
 import 'package:ejemplo_1/ui/pages/auth/register.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class NavigationBarApp extends StatefulWidget {
   const NavigationBarApp({Key? key}) : super(key: key);
@@ -32,7 +33,7 @@ class _MyNavigationBarState extends State<NavigationBarApp> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
-            backgroundColor: Colors.blue,
+            backgroundColor: HexColor("#A884FE"),
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.person_pin_circle),
