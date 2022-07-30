@@ -20,11 +20,7 @@ class MyApp extends StatelessWidget {
         '/register': (context) => const Register(),
       },
       home: const NavigationBarApp(),
-     theme: (
-      ThemeData(
-        primarySwatch: Colors.deepPurple
-      )
-     ),
+      theme: (ThemeData(primarySwatch: Colors.deepPurple)),
     );
   }
 }

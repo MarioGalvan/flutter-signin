@@ -3,6 +3,7 @@ class User{
   final String nombre;
   final String rol;
   final String user;
+  final String pass;
     
 User(
   {
@@ -10,6 +11,7 @@ User(
     required this.nombre,
     required this.rol,
     required this.user,
+    required this.pass,
   }
 );
 
@@ -18,6 +20,7 @@ User(
     nombre: json['nombre'],
     rol: json['rol'],
     user: json['user'],
+    pass: json['pass'],
   );
 
 

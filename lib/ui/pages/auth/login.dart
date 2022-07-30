@@ -22,9 +22,9 @@ class _LoginState extends State<Login> {
         appBar: AppBar(
           title: const Text('Iniciar Sesión'),
         ),
-        body:  Container(
+        body: Container(
             height: 500,
-             margin: const EdgeInsets.only(top:60.0),
+            margin: const EdgeInsets.only(top: 60.0),
             width: double.infinity,
             child: Align(
               alignment: Alignment.center,
@@ -76,8 +76,11 @@ class _LoginState extends State<Login> {
                           contentPadding: const EdgeInsets.all(16),
                         ),
                       ),
-                       const SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       TextField(
+                        obscureText: true,
+                        enableSuggestions: false,
+                        autocorrect: false,
                         controller: controlPass,
                         textAlign: TextAlign.center,
                         keyboardType: TextInputType.text,
