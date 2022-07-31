@@ -30,7 +30,9 @@ class _ArticulosListState extends State<ArticulosList> {
 
   @override
   Widget build(BuildContext context) {
-    return (Expanded(
+    return (
+      dataObtener.isNotEmpty==true?
+      Expanded(
       child: ListView.builder(
         itemCount: dataObtener.length,
         itemBuilder: (context, index) {
@@ -44,7 +46,11 @@ class _ArticulosListState extends State<ArticulosList> {
             }
           );
         },
-      ),
-    ));
+      ))
+      :
+      const Center(
+        child: CircularProgressIndicator(),
+      )
+    );
   }
 }
