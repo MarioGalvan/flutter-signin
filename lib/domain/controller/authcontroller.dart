@@ -9,9 +9,9 @@ import 'package:http/http.dart' as http;
 class AuthController extends GetxController {
   final Rxn<List<User>> _users = Rxn<List<User>>();
   String _mensaje = "";
+  String? get mensaje => _mensaje;
 
   List<User>? get users => _users.value;
-  String? get mensaje => _mensaje;
 
   Future<void> enviarDatos(
       http.Client cliente, String user, String pass) async {

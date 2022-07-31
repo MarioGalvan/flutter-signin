@@ -1,4 +1,5 @@
 import 'package:ejemplo_1/domain/controller/authcontroller.dart';
+import 'package:ejemplo_1/utils/userController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -104,26 +105,8 @@ class _LoginState extends State<Login> {
                         children: [
                           ElevatedButton.icon(
                             onPressed: () {
-                              controladorUser
-                                  .enviarDatos(http.Client(), controlUser.text,
-                                      controlPass.text)
-                                  .then((res) => {
-                                        if (controladorUser.users?.isNotEmpty ==
-                                            true)
-                                          {Get.toNamed('/Principal')}
-                                        else
-                                          {
-                                            Get.showSnackbar(const GetSnackBar(
-                                                title: 'Validación de usuarios',
-                                                message:
-                                                    "Credenciales incorrectas",
-                                                icon: Icon(Icons
-                                                    .error_outline_outlined),
-                                                duration: Duration(seconds: 3),
-                                                backgroundColor:
-                                                    Colors.deepPurple))
-                                          }
-                                      });
+                              userLogin(
+                                  controlUser, controlPass, controladorUser);
                             },
                             icon: const Icon(Icons.login_sharp),
                             label: const Text('Ingresar'),

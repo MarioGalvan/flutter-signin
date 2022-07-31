@@ -1,30 +1,31 @@
-import 'package:ejemplo_1/domain/controller/authcontroller.dart';
-import 'package:ejemplo_1/utils/userController.dart';
+import 'package:ejemplo_1/utils/articulosController.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
-class Register extends StatefulWidget {
-  const Register({Key? key}) : super(key: key);
-
+class RegisterArticulos extends StatefulWidget {
+  const RegisterArticulos({Key? key}) : super(key: key);
   @override
-  State<Register> createState() => _RegisterState();
+  State<RegisterArticulos> createState() => _RegisterArticulosState();
 }
 
-class _RegisterState extends State<Register> {
-  TextEditingController controlName = TextEditingController();
-  TextEditingController controlUser = TextEditingController();
-  TextEditingController controlPass = TextEditingController();
-  TextEditingController controlRole = TextEditingController();
-  AuthController controladorUser = Get.find();
+class _RegisterArticulosState extends State<RegisterArticulos> {
+  TextEditingController controlIdArticulo = TextEditingController();
+  TextEditingController controlDetalle = TextEditingController();
+  TextEditingController controlMarca = TextEditingController();
+  TextEditingController controlMedida = TextEditingController();
+  TextEditingController controlCantBodega = TextEditingController();
+  TextEditingController controlFoto = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-     appBar: AppBar(
-          title: const Text('Iniciar Sesión'),
-        ),
-      body: Center(
+    return Container(
+      width: 350,
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: const BorderRadius.all(Radius.circular(20)),
+          border: Border.all(color: Colors.white, width: 0)),
+      child: Center(
         child: Padding(
           padding: const EdgeInsets.all(40.0),
           child: Column(
@@ -34,24 +35,21 @@ class _RegisterState extends State<Register> {
                 decoration: const BoxDecoration(
                   color: Colors.white,
                   shape: BoxShape.circle,
-                  boxShadow: [
-                    BoxShadow(
-                        blurRadius: 3, color: Colors.black, spreadRadius: 0.8)
-                  ],
                 ),
                 child: const CircleAvatar(
                   radius: 80,
+                  backgroundColor: Colors.white,
                   backgroundImage: NetworkImage(
-                      'https://media.istockphoto.com/photos/illustration-of-smiling-happy-man-with-laptop-sitting-in-armchair-picture-id1226886130?k=20&m=1226886130&s=612x612&w=0&h=fGcntDfKtd9fLO4QsgcYE3uUS3vuwKZSSl38NXFyC9A='),
+                      'https://cdn0.iconfinder.com/data/icons/3d-web-front-vol-1/512/3d-web-front-vol-1/1000/Full_Cart.png'),
                 ),
               ),
               const SizedBox(height: 20),
               TextField(
-                controller: controlName,
+                controller: controlIdArticulo,
                 textAlign: TextAlign.center,
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
-                  hintText: 'Nombre',
+                  hintText: 'Id Articulo',
                   hintStyle: const TextStyle(fontSize: 16),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
@@ -66,11 +64,11 @@ class _RegisterState extends State<Register> {
               ),
               const SizedBox(height: 20),
               TextField(
-                controller: controlRole,
+                controller: controlDetalle,
                 textAlign: TextAlign.center,
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
-                  hintText: 'Rol',
+                  hintText: 'Detalle',
                   hintStyle: const TextStyle(fontSize: 16),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
@@ -85,11 +83,11 @@ class _RegisterState extends State<Register> {
               ),
               const SizedBox(height: 20),
               TextField(
-                controller: controlUser,
+                controller: controlMarca,
                 textAlign: TextAlign.center,
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
-                  hintText: 'Usuario',
+                  hintText: 'Marca',
                   hintStyle: const TextStyle(fontSize: 16),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
@@ -104,11 +102,30 @@ class _RegisterState extends State<Register> {
               ),
               const SizedBox(height: 20),
               TextField(
-                controller: controlPass,
+                controller: controlMedida,
                 textAlign: TextAlign.center,
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
-                  hintText: 'Password',
+                  hintText: 'Medida',
+                  hintStyle: const TextStyle(fontSize: 16),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: const BorderSide(
+                      width: 0,
+                      style: BorderStyle.none,
+                    ),
+                  ),
+                  filled: true,
+                  contentPadding: const EdgeInsets.all(16),
+                ),
+              ),
+              const SizedBox(height: 20),
+              TextField(
+                controller: controlCantBodega,
+                textAlign: TextAlign.center,
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  hintText: 'Cantidad en Bodega',
                   hintStyle: const TextStyle(fontSize: 16),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
@@ -128,11 +145,15 @@ class _RegisterState extends State<Register> {
                       margin: const EdgeInsets.only(top: 10.0),
                       child: ElevatedButton.icon(
                         onPressed: () {
-                          registerUser(controlName, controlUser, controlPass,
-                              controlRole);
+                          addArticulos(
+                              controlIdArticulo.text,
+                              controlDetalle.text,
+                              controlMarca.text,
+                              controlMedida.text,
+                              controlCantBodega.text);
                         },
-                        icon: const Icon(Icons.person_add_alt_1_outlined),
-                        label: const Text('Registrarse'),
+                        icon: const Icon(Icons.shop_2_outlined),
+                        label: const Text('Agregar Articulo'),
                         style: ButtonStyle(
                           shape: MaterialStateProperty.all(
                               RoundedRectangleBorder(

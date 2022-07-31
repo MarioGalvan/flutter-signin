@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "802383386477",
+    "project_id": "finanzafamiliar-3ac83",
+    "storage_bucket": "finanzafamiliar-3ac83.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:802383386477:android:b181d3314d122078d02c64",
+        "android_client_info": {
+          "package_name": "com.example.ejemplo_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "802383386477-4p8hu8c36so4042olmmm3dkdcv07c0o4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAu0xm4fGG4AXpR9fwgnzV3Lpkv1zIJrgk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "802383386477-4p8hu8c36so4042olmmm3dkdcv07c0o4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

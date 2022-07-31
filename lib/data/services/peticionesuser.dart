@@ -22,6 +22,15 @@ class PeticionUser {
     return compute(pasarAlista, response.body);
   }
 
+  static List<User> pasarAlista(String responseBody) {
+    final pasar = json.decode(responseBody).cast<Map<String, dynamic>>();
+    return pasar.map<User>((json) => User.desdeJson(json)).toList();
+  }
+
+  static String responseRegister(String responseBody) {
+    return responseBody;
+  }
+
   static Future<String> registerUser(http.Client client, String user,
       String pass, String nombre, String rol) async {
     var url = Uri.parse(baseUrlRegister);
@@ -36,14 +45,5 @@ class PeticionUser {
       // print(response.body.toString());
     }
     return compute(responseRegister, response.body);
-  }
-
-  static List<User> pasarAlista(String responseBody) {
-    final pasar = json.decode(responseBody).cast<Map<String, dynamic>>();
-    return pasar.map<User>((json) => User.desdeJson(json)).toList();
-  }
-
-  static String responseRegister(String responseBody) {
-    return responseBody;
   }
 }
